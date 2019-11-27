@@ -1,6 +1,5 @@
 # ------------------------------------------------------------------------------------------------------- #
-
-###### ------------------------- Code to calculate trends in Muse Monitor data -------------------------- #
+#------------------------------- Code to calculate trends in Muse Monitor data -------------------------- #
 # ------------------- Holly Copeland ---------------------------------------------------------------------#
 # ---------------- Contact: hecopeland@gmail.com---------------------------------------- ---------------- #
 # Code entirely excludes files with nans, and removes any nodata from blinks, jaw clenches
@@ -10,12 +9,14 @@
 library(tidyverse)
 library(data.table)
 library(dplyr)
+library(stringr)
+library (grid)
+library (gridExtra)
 
 #### CHANGE THIS LOCATION TO MATCH YOUR DATA ####
 setwd("C:/Users/Holly Copeland/iCloudDrive/muse monitor") 
 
 ###################################################
-library(stringr)
 listcsv <- dir(pattern = "*.csv")
 dat <- data.frame()
 #Loop through files and do not include any with NaNs
@@ -46,9 +47,6 @@ datmeans <- dat %>% group_by(date) %>%
 
 summary(datmeans)
 datmeans$date <- as.Date(datmeans$date,"%m/%d/%Y", tz ="MST")
-
-library (grid)
-library (gridExtra)
 
 #plots of distances and disturbance on noise
 p1 <- ggplot(datmeans, aes(x=date, y=deltamean)) + geom_line(alpha = 0.2) + scale_x_date(date_labels = "%b",breaks='1 month') + geom_smooth()+ ylab("delta") + xlab("date")
