@@ -14,10 +14,7 @@ library(dplyr)
 # ------------------------------------------------------------------------------------------------------------------------
 # ------------------------------------------------------------------------------------------------------------------------
 #### CHANGE THIS LOCATION TO MATCH YOUR DATA ####
-#setwd("C:/Users/Holly Copeland/iCloudDrive/muse monitor/LLP_1292020") 
-#setwd("C:/Users/Holly Copeland/iCloudDrive/muse monitor/Stephen/Gamma1") 
-#setwd("C:/Users/Holly Copeland/iCloudDrive/muse monitor/") 
-setwd("C:/Users/Holly Copeland/iCloudDrive/muse monitor/ROV Core Group Analysis/Bill/All") 
+setwd("C:/Users/Holly Copeland/iCloudDrive/muse monitor/") 
 ###################################################
 library(stringr)
 listcsv <- dir(pattern = "*.csv")
